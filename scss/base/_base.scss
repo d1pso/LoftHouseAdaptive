@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Raleway:wght@400;700&family=Roboto:wght@300&display=swap');
+body {
+	font-family: $font-main;
+
+
+	background-color: $color-dark;
+}
+
+.wrapper {
+	min-height: 100%;
+	overflow: hidden;
+}
+
+[class*=__container] {
+	max-width: 1140px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.title {
+    font-family: $font-second;
+    font-weight: 700;
+    font-size: 2.25rem;
+    line-height: 0.75; /* 36/48 */
+
+    color: $color-accent;
+	@media screen and (max-width: 555px){
+		font-size: 2rem;
+	}
+	@media screen and (max-width: 424.98px){
+		font-size: 1.8rem;
+	}
+}
+.no-scroll {
+	overflow: hidden;
+}
+
+/* ============== BURGER ============== */
+
+@media screen and (max-width: 1023.98px) {
+	.header__logo {
+		z-index: 10;
+	}
+	.header__nav {
+		padding: 0 0 150px 0;
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 850px;
+		z-index: 5;
+		transition: left .2s ease-in;
+		background-color: $color-dark;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&--active {
+			left: 0;
+		}
+	}
+	.header__list {
+		display: flex;
+		flex-direction: column;
+		row-gap: 50px;
+	}
+	.header__link {
+        font-size: 1rem !important;
+	}
+	.menu__burger {
+		margin: 0 0 0 10px;
+		position: relative;
+		width: 30px;
+		height: 24px;
+		cursor: pointer;
+		z-index: 10;
+	
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 100%;
+			height: 12%;
+			transition: all .2s ease-in;
+			background-color: $color-main;
+		}
+	
+		& span {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 12%;
+			transition: all .2s ease-in;
+			transform: translateY(-50%) scale(1);
+			background-color: $color-main;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+
+		&--active::before {
+			top: 50%;
+			transform: translateY(-50%) rotate(-45deg);
+		}
+		&--active::after {
+			bottom: 50%;
+			transform: translateY(50%) rotate(45deg);
+		}
+		&--active span {
+			transform: translateY(-50%) scale(0)
+		}
+	}
+}
+
+
+/* ============== BURGER ============== */
